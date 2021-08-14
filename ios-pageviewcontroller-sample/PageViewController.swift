@@ -70,4 +70,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         currentIndex = index
     }
 
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        pageViewController.view.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            pageViewController.view.isUserInteractionEnabled = true
+        }
+    }
 }
